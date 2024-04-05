@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	# Send request via index.php
+	RewriteCond %{REQUEST_FILENAME} !-s
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond $1 !^(index\.php|images|css|robots\.txt)
+	RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
